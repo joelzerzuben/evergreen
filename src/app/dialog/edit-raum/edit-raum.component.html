@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Raum anpassen</h1>
+<div mat-dialog-content>
+  Wähle einen Raum für deine Pflanze aus
+
+  <mat-chip-listbox aria-label="roomSelection">
+    <mat-chip-option (click)="changeValue('Balkon')" [selected]="selectedRoom == 'Balkon'">Balkon</mat-chip-option>
+    <mat-chip-option (click)="changeValue('Büro')" [selected]="selectedRoom == 'Büro'">Büro</mat-chip-option>
+    <mat-chip-option (click)="changeValue('Eingang')" [selected]="selectedRoom == 'Eingang'">Eingang</mat-chip-option>
+    <mat-chip-option (click)="changeValue('Küche')" [selected]="selectedRoom == 'Küche'">Küche</mat-chip-option>
+    <mat-chip-option (click)="changeValue('Schlafzimmer')" [selected]="selectedRoom == 'Schlafzimmer'">Schlafzimmer</mat-chip-option>
+    <mat-chip-option (click)="changeValue('Wohnzimmer')" [selected]="selectedRoom == 'Wohnzimmer'">Wohnzimmer</mat-chip-option>
+  </mat-chip-listbox>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Schliessen</button>
+  <button mat-raised-button color="primary" (click)="edit()" >Speichern</button>
+</div>

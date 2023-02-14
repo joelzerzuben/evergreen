@@ -1,0 +1,61 @@
+<div id="wrapper">
+    <div id="content">
+
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>{{plant.name}}</mat-card-title>
+                <mat-card-subtitle>{{plant.kategorie}}</mat-card-subtitle>
+                <img mat-card-md-image src="{{plant.bild}}" >
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+              <br>
+              <div class="iconWrapper">
+                <div class="pill"><fa-icon [icon]="waterIcon" size="2x"></fa-icon><br>{{plant.wasser_min + ( plant.wasser_max ? ' - '+plant.wasser_max:'' )}} Tage</div>
+                <div class="pill red"><fa-icon [icon]="temp_low" size="2x"></fa-icon><br>{{plant.temperatur_min + ( plant.temperatur_max ? ' - '+plant.temperatur_max:'' )}}° Grad</div>
+                <div class="pill yellow"><fa-icon [icon]="sun" size="2x" ></fa-icon><br>{{convertSun(plant.lichtbedarf_min) + ( plant.lichtbedarf_max ? ' - '+convertSun(plant.lichtbedarf_max):'' )}}</div>
+                <div class="pill green"><fa-icon [icon]="seedling" size="2x" ></fa-icon><br>{{plant.kategorie}}</div>
+                <div class="pill brown"><fa-icon [icon]="erde" size="2x" ></fa-icon><br>{{plant.boden}}</div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+          <br>
+
+          <mat-card id="addPlantCard">
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>Hinzufügen</mat-card-title>
+                <mat-card-subtitle>zu meinen Pflanzen hinzufügen</mat-card-subtitle>
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <br>
+                <mat-chip-listbox aria-label="roomSelection">
+                    <mat-chip-option (click)="changeRaum('Balkon')" selected>Balkon</mat-chip-option>
+                    <mat-chip-option (click)="changeRaum('Büro')" >Büro</mat-chip-option>
+                    <mat-chip-option (click)="changeRaum('Eingang')" >Eingang</mat-chip-option>
+                    <mat-chip-option (click)="changeRaum('Küche')" >Küche</mat-chip-option>
+                    <mat-chip-option (click)="changeRaum('Schlafzimmer')" >Schlafzimmer</mat-chip-option>
+                    <mat-chip-option (click)="changeRaum('Wohnzimmer')" >Wohnzimmer</mat-chip-option>
+                </mat-chip-listbox>
+                <br>
+
+                <mat-form-field class="full-width" style="margin-bottom: -1.25em">
+                    <mat-label>Beschreibung</mat-label>
+                    <input matInput [(ngModel)]="beschreibung">
+                </mat-form-field>
+                <br><br>
+                <button mat-raised-button color="primary" (click)="addPlant()">Speichern</button>
+                &nbsp;
+                <button mat-stroked-button (click)="gotToLexikon()">Zurück</button>
+            </mat-card-content>
+          </mat-card>
+
+     </div>
+</div>  
+
+
+<app-bottom-nav></app-bottom-nav>
+<router-outlet></router-outlet>

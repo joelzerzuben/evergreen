@@ -1,0 +1,103 @@
+#wrapper{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #C1E1C1!important;
+    
+}
+#content{
+  padding: 20px;
+  max-width: 750px;
+  margin: 0 auto;
+  padding-bottom:30px;
+}
+
+.my-form-field .mat-form-field-wrapper {
+  margin-bottom: -1.25em;
+}
+
+div#content{
+  background-color: #C1E1C1!important;
+}
+
+.plantCard{
+  margin-bottom: 25px;
+}
+
+.red{
+    background-color: #ffb2ae!important;
+    color: #8b0000!important;
+}
+
+.yellow{
+    background-color: #F8F1AE!important;
+    color: 	#6D6200!important;
+}
+
+.brown{
+    background-color: #dfc7a7!important;
+    color: #453d33!important;
+}
+
+.green{
+  background-color: #C1E1C1!important;
+  color: 	#005000!important;
+}
+.pill {
+  pointer-events: none;
+  background-color: #EFF4FF;
+  border: none;
+  color: #2557D6;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 20px;
+  margin-left: -1px;
+  margin-bottom: 10px;
+  border-radius: 100px;
+  min-width: 90px;
+  font-size: smaller;
+}
+
+.pill:nth-child(even){
+  float: right;
+  margin-right: 0px;
+}
+
+.right{
+  float: right;
+}
+
+.left{
+  float: left;
+}
+
+.iconWrapper{
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right:20px;
+}
+
+
+
+#backButton{
+  color: var(--primary);
+  float: right;
+  display: inline-block;
+}
+
+#wrapper{
+  height: 100%;
+  width: 100%;
+  background-color: #C1E1C1!important;
+  
+}
+
+
+@media only screen and (min-width: 700px) {
+  .pill:nth-child(even){
+    float: unset!important;
+    margin-right: 20px!important;
+  }
+}

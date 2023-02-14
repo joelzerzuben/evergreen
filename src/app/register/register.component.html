@@ -1,0 +1,51 @@
+<div id="contentContainer">
+    <div class="logoContainer">
+        <fa-icon [icon]="icon" size="6x" id="logoIcon"></fa-icon>
+    </div>
+
+
+
+    <form [formGroup]="registerForm" class="registerForm" (ngSubmit)="submitRegister()">
+        <mat-form-field class="full-width">
+            <mat-label>Benutzername</mat-label>
+            <input type="text" matInput required
+                formControlName="username"
+                name="username"
+                placeholder="z.B. plantLover">
+            <mat-error *ngIf="registerForm.get('username')?.hasError('required')" >
+                Benutzername ist ein <strong>Pflichtfeld</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Passwort</mat-label>
+            <input  type="password" 
+                    formControlName="password" 
+                    name="password" 
+                    matInput>
+            <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+                Passwort ist ein <strong>Pflichtfeld</strong>
+            </mat-error>
+            <mat-error *ngIf="registerForm.get('password')?.hasError('minlength')">
+              Ihr Passwort muss <strong>mindestens 8 Zeichen</strong> lang sein
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Passwort wiederholen*</mat-label>
+            <input  type="password" 
+                    formControlName="password2" 
+                    name="password2" 
+                    matInput>
+            <mat-error *ngIf="registerForm.get('password')?.hasError('required')">
+                Passwort wiederholen ist ein <strong>Pflichtfeld</strong>
+            </mat-error>
+            <mat-error *ngIf="registerForm?.hasError('matching')">
+               Die Passwörter stimmen nicht überein
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Registrieren</button>
+        <a id="registerButton" [routerLink]="" (click)="goToLogin()" >Login</a>
+    </form>
+</div>

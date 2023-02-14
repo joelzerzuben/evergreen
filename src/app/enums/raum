@@ -1,0 +1,9 @@
+export enum RAUM {
+    BADEZIMMER = 'Badezimmer',
+    BALKON = 'Balkon',
+    EINGANG = 'Eingang',
+    GARTEN = 'Garten',
+    KUECHE = 'Küche',
+    SCHALFZIMMER = 'Schlafzimmer',
+    WOHNZIMMER = 'Wohnzimmer'
+  }    

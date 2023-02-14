@@ -1,0 +1,34 @@
+<div id="contentContainer">
+    <div class="logoContainer">
+        <fa-icon [icon]="icon" size="6x" id="logoIcon"></fa-icon>
+    </div>
+
+
+
+    <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="submitLogin()">
+        <mat-form-field class="full-width">
+            <mat-label>Benutzername</mat-label>
+            <input type="text" matInput required
+                formControlName="username"
+                name="username"
+                placeholder="z.B. plantLover">
+            <mat-error *ngIf="loginForm.get('username')?.hasError('required')" >
+                Benutzername ist ein <strong>Pflichtfeld</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Passwort</mat-label>
+            <input  type="password" 
+                    formControlName="password" 
+                    name="password" 
+                    matInput>
+            <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
+            Passwort ist ein <strong>Pflichtfeld</strong>
+            </mat-error>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">Login</button>
+        <a id="registerButton" [routerLink]="" (click)="goToRegister()" >Registrieren!</a>
+    </form>
+</div>

@@ -1,0 +1,22 @@
+
+<div id="wrapper">
+    <div id="content">
+
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Suche ..." [(ngModel)]="searchterm">
+        </mat-form-field>
+
+        <mat-card class="plant-card" *ngFor="let item of this.lexikon |  filter:searchterm " (click)="navigateDetail(item)" >
+            <mat-card-header>
+                <img mat-card-avatar src="{{item.bild}}">
+                <mat-card-title>{{item.name}}
+                </mat-card-title>
+                <mat-card-subtitle>{{item.kategorie}}</mat-card-subtitle>
+              </mat-card-header>
+        </mat-card>
+
+     </div>
+</div>  
+
+<app-bottom-nav></app-bottom-nav>
+<router-outlet></router-outlet>

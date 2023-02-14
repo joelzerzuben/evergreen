@@ -1,0 +1,57 @@
+
+
+<div id="wrapper">
+    <div id="content">
+
+        <mat-form-field class="full-width">
+            <input matInput placeholder="Suche ..." [(ngModel)]="searchterm">
+        </mat-form-field>
+        
+
+        <mat-card *ngFor="let item of userData.plants |  filter:searchterm " class="plantCard">
+            <mat-card-header>
+                <h3 class="tageCounter"><fa-icon [icon]="clock" class="waterIcon"></fa-icon>
+                    &nbsp;<span>{{item.waesserungen[item.waesserungen.length - 1] | userPlantWaterDays:item.wasser_min:item.wasser_max}}</span>
+                </h3>
+                <img mat-card-avatar src="{{item.bild}}">
+                <mat-card-title class="full-width">
+                  {{item.name}}
+                </mat-card-title>
+                <mat-card-subtitle (click)="openEditDialog(item)">{{item.raum}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content> 
+                <mat-form-field class="full-width" style="margin-bottom: -1.25em">
+                    <input matInput [(ngModel)]="item.beschreibung">
+                    <button matSuffix mat-icon-button (click)="editName(item)">
+                        <mat-icon>saveAs</mat-icon>
+                      </button>
+                </mat-form-field>
+
+                <div class="iconWrapper">
+                    <div class="pill"><fa-icon [icon]="waterIcon" size="2x"></fa-icon><br>{{item.wasser_min + ( item.wasser_max ? ' - '+item.wasser_max:'' )}} Tage</div>
+                    <div class="pill red"><fa-icon [icon]="temp_low" size="2x"></fa-icon><br>{{item.temperatur_min + ( item.temperatur_max ? ' - '+item.temperatur_max:'' )}}° Grad</div>
+                    <div class="pill yellow"><fa-icon [icon]="sun" size="2x" ></fa-icon><br>{{convertSun(item.lichtbedarf_min) + ( item.lichtbedarf_max ? ' - '+convertSun(item.lichtbedarf_max):'' )}}</div>
+                    <div class="pill green"><fa-icon [icon]="seedling" size="2x" ></fa-icon><br>{{item.kategorie}}</div>
+                </div>
+             
+                
+              
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" (click)="waessern(item)"><fa-icon [icon]="waterIcon" ></fa-icon>&nbsp;Wasser</button>
+                &nbsp;
+                <button mat-raised-button color="warn" (click)="pflanzeEntfernen(item)"><fa-icon [icon]="pflanzeKaputt" ></fa-icon>&nbsp;Eingegangen</button>
+            
+            </mat-card-actions>
+        </mat-card>
+        <br>
+
+    </div>
+
+</div>
+
+
+
+<app-bottom-nav></app-bottom-nav>
+<router-outlet></router-outlet>

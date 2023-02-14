@@ -1,0 +1,23 @@
+<mat-tab-group id="bottomNav" animationDuration="0ms" (selectedTabChange)="navigate($event)" [selectedIndex]="getActiveTab()">
+
+    <mat-tab label="Pflanzen">
+        <ng-template mat-tab-label>
+            <fa-icon [icon]="leaf"></fa-icon>
+            &nbsp;Pflanzen
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="Lexikon">
+        <ng-template mat-tab-label >
+            <fa-icon [icon]="book"></fa-icon>
+            &nbsp;Lexikon
+        </ng-template>
+      </mat-tab>
+
+      <mat-tab label="Logout">
+        <ng-template mat-tab-label>
+            <fa-icon [icon]="logoutIcon"></fa-icon>
+            &nbsp;Logout
+        </ng-template>
+      </mat-tab>
+</mat-tab-group>
